@@ -20,34 +20,15 @@
       'sources': [ 'src/bindings.cpp', 'src/FreeImage.cpp', 'src/Image.cpp' ],
       'conditions': [
         ['OS=="linux"', {'libraries': ['-lfreeimage']}],
-        ['OS=="mac"',
-          {
-            'libraries': ['-lfreeimage'],
-            'include_dirs': ['/usr/local/include'],
-            'library_dirs': ['/usr/local/lib'],
-          }
-        ],
-        ['OS=="win"',
-          {
-            'include_dirs': [
-              './deps/FreeImage/include'
-              ],
-            'library_dirs': [
-              './deps/FreeImage/windows/lib/<(target_arch)'
-              ],
-            'libraries': [
-              'FreeImage.lib'
-              ],
-            'defines' : [
-              'WIN32_LEAN_AND_MEAN',
-              'VC_EXTRALEAN'
+        ['OS=="mac"', {'libraries': ['-lfreeimage']}],
+        ['OS=="win"', {
+          'libraries': [
+            'FreeImage64.lib'
             ],
-            'cflags' : [
-              '/O2','/Oy','/GL','/GF','/Gm-','/EHsc','/MT','/GS','/Gy','/GR-','/Gd'
-            ],
-            'ldflags' : [
-              '/OPT:REF','/OPT:ICF','/LTCG'
-            ]
+          'defines' : [
+            'WIN32_LEAN_AND_MEAN',
+            'VC_EXTRALEAN'
+          ]
           },
         ],
       ],

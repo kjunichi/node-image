@@ -3,7 +3,10 @@
   "version": "0.7.1",
   "description": "A Node.JS wrapper around FreeImage",
   "main": "lib/image.js",
-  "author": "Mikael Bourges-Sevenier <mikeseven@gmail.com>",
+  "author": {
+    "name": "Mikael Bourges-Sevenier",
+    "email": "mikeseven@gmail.com"
+  },
   "keywords": [
     "jpeg",
     "jpg",
@@ -33,9 +36,8 @@
   ],
   "maintainers": [
     {
-      "name": "Mikael Bourges-Sevenier",
-      "email": "mikeseven@gmail.com",
-      "twitter": "msevenier"
+      "name": "mikeseven",
+      "email": "mikeseven@gmail.com"
     }
   ],
   "licenses": [
@@ -60,6 +62,26 @@
     "install": "node-gyp rebuild"
   },
   "dependencies": {
-    "nan": "^0.8.0"
-  }
+    "nan": ">=0.8.0"
+  },
+  "gitHead": "f91a7993963d05b5cbccc9673473636abf135f32",
+  "gypfile": true,
+  "bugs": {
+    "url": "https://github.com/mikeseven/node-image/issues"
+  },
+  "homepage": "https://github.com/mikeseven/node-image",
+  "_id": "node-image@0.7.1",
+  "_shasum": "8ab3319e9318736373ce01028153686fd460ea66",
+  "_from": "node-image@>=0.7.1",
+  "_npmVersion": "1.4.14",
+  "_npmUser": {
+    "name": "mikeseven",
+    "email": "mikeseven@gmail.com"
+  },
+  "dist": {
+    "shasum": "8ab3319e9318736373ce01028153686fd460ea66",
+    "tarball": "http://registry.npmjs.org/node-image/-/node-image-0.7.1.tgz"
+  },
+  "_resolved": "https://registry.npmjs.org/node-image/-/node-image-0.7.1.tgz",
+  "readme": "ERROR: No README data found!"
 }

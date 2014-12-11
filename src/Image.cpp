@@ -28,8 +28,8 @@ void Image::Initialize(Handle<Object> target) {
   NanScope();
 
   // constructor
-  Local<FunctionTemplate> ctor = FunctionTemplate::New(Image::New);
-  NanAssignPersistent(FunctionTemplate, constructor_template, ctor);
+  Local<FunctionTemplate> ctor = FunctionTemplate::New(v8::Isolate::GetCurrent(),Image::New);
+  NanAssignPersistent(constructor_template, ctor);
   ctor->InstanceTemplate()->SetInternalFieldCount(1);
   ctor->SetClassName(JS_STR("Image"));
 
@@ -54,8 +54,8 @@ Image *Image::New(FIBITMAP* dib) {
 
   NanScope();
 
-  Local<Value> arg = Integer::NewFromUnsigned(0);
-  Local<FunctionTemplate> constructorHandle = NanPersistentToLocal(constructor_template);
+  Local<Value> arg = Integer::NewFromUnsigned(v8::Isolate::GetCurrent(),0);
+  Local<FunctionTemplate> constructorHandle = NanNew(constructor_template);
   Local<Object> obj = constructorHandle->GetFunction()->NewInstance(1, &arg);
   
   Image *image = ObjectWrap::Unwrap<Image>(obj);
@@ -64,7 +64,7 @@ Image *Image::New(FIBITMAP* dib) {
   int w,h,pitch;
   FREE_IMAGE_TYPE type = FreeImage_GetImageType(dib);
 
-  obj->SetInternalField(0, External::New(dib));
+  obj->SetInternalField(0, External::New(v8::Isolate::GetCurrent(),dib));
   obj->Set(JS_STR("width"), JS_INT(w=FreeImage_GetWidth(dib)));
   obj->Set(JS_STR("height"), JS_INT(h=FreeImage_GetHeight(dib)));
   obj->Set(JS_STR("bpp"), JS_INT((int)FreeImage_GetBPP(dib)));
